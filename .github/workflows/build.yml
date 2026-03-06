@@ -1,29 +1,35 @@
-name: Build Android APK
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4 # Оновлено до v4
-      
-      - name: Set up Python
-        uses: actions/setup-python@v5 # Оновлено до v5
-        with:
-          python-version: '3.10'
-          
-      - name: Install Flet and Dependencies
-        run: |
-          pip install flet
-          
-      - name: Build APK
-        run: |
-          flet build apk
-          
-      - name: Upload APK
-        uses: actions/upload-artifact@v4 # Оновлено до v4 (критично!)
-        with:
-          name: app-release
-          path: build/apk/*.apk
+4s
+Run flet build apk
+Installing flet-cli 0.82.0 package...OK
+25l( ●    ) Initializing apk build...
+[22:32:02] Flutter SDK not found or invalid version installed.                  
+( ●    ) Initializing apk build...
+( ●    ) Initializing apk build...
+Traceback (most recent call last):
+25hFlutter SDK 3.41.4 is required. It will be installed now. Proceed?   [y/n] (y): 25l
+( ●    ) Initializing apk build...
+  File "/opt/hostedtoolcache/Python/3.10.19/x64/bin/flet", line 6, in <module>
+    sys.exit(main())
+  File "/opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/site-packages/flet/cli.py", line 8, in main
+    flet_cli.cli.main()
+  File "/opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/site-packages/flet_cli/cli.py", line 115, in main
+    args.handler(args)
+  File "/opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/site-packages/flet_cli/commands/build.py", line 68, in handle
+    self.initialize_command()
+  File "/opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/site-packages/flet_cli/commands/build_base.py", line 653, in initialize_command
+    super().initialize_command()
+  File "/opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/site-packages/flet_cli/commands/flutter_base.py", line 161, in initialize_command
+    if not self._prompt_input(prompt):
+  File "/opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/site-packages/flet_cli/commands/flutter_base.py", line 371, in _prompt_input
+    return Confirm.ask(prompt, default=True)
+  File "/opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/site-packages/rich/prompt.py", line 149, in ask
+    return _prompt(default=default, stream=stream)
+  File "/opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/site-packages/rich/prompt.py", line 292, in __call__
+    value = self.get_input(self.console, prompt, self.password, stream=stream)
+  File "/opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/site-packages/rich/prompt.py", line 211, in get_input
+    return console.input(prompt, *** stream=stream)
+  File "/opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/site-packages/rich/console.py", line 2174, in input
+    result = input()
+EOFError: EOF when reading a line
+25h
+Error: Process completed with exit code 1.
